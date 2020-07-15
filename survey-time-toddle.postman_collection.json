@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "b0ec0ae5-2e72-4d42-99db-43b9e5e6af77",
+		"name": "survey-time-toddle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "welcome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a53086fb-43ff-4530-b784-6d766d7d9bb3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "83c4578c-8bed-4c5c-9140-1f89c4247b2c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b0770aca-09e1-4bf6-8f0b-0243fd8b30d1",
+			"key": "local",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
