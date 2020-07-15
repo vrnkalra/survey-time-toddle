@@ -1,0 +1,23 @@
+{
+  "name": "survey-time-toddle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrnkalra/survey-time-toddle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrnkalra/survey-time-toddle/issues"
+  },
+  "homepage": "https://github.com/vrnkalra/survey-time-toddle#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
