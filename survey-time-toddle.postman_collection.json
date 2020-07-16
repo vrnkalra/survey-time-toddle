@@ -21,6 +21,188 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "user login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20f4e9e8-49a5-4d30-92c3-99d36e471597",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"access_token\", jsonData.data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"varun\",\n    \"password\" : \"foobar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/user/login",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create survey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20f4e9e8-49a5-4d30-92c3-99d36e471597",
+						"exec": [
+							"// var jsonData = JSON.parse(responseBody);",
+							"// pm.collectionVariables.set(\"survey_id\", jsonData.data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/survey/login",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"survey",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "take survey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20f4e9e8-49a5-4d30-92c3-99d36e471597",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"access_token\", jsonData.data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"ksduhf\",\n    \"password\" : \"dfsd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/survey/1/take",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"survey",
+						"1",
+						"take"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get survey results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20f4e9e8-49a5-4d30-92c3-99d36e471597",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"ksduhf\",\n    \"password\" : \"dfsd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/survey/1/result",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"survey",
+						"1",
+						"result"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -47,9 +229,19 @@
 	],
 	"variable": [
 		{
-			"id": "b0770aca-09e1-4bf6-8f0b-0243fd8b30d1",
+			"id": "6e5d9a96-9dc5-4861-881a-034eae654519",
 			"key": "local",
-			"value": ""
+			"value": "http://localhost:3000"
+		},
+		{
+			"id": "4d1052ac-a625-401d-a01f-aa8fe6e0b920",
+			"key": "access_token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTQ4NjY5ODEsImV4cCI6MTU5NDg2ODc4MX0.iY8zUj0409iZmSRsawB4EpBDnijOsUminkbkTVb9MX0"
+		},
+		{
+			"id": "f2d27f0f-f842-4d16-b39e-bf9fa0600089",
+			"key": "heroku",
+			"value": "https://survey-time-toddle.herokuapp.com"
 		}
 	],
 	"protocolProfileBehavior": {}
