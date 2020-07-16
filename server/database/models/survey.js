@@ -1,23 +1,39 @@
-// module.exports = (Sequelize, DataTypes) => {
-//     const User = Sequelize.define('User', {
-//       id: {
-//         type: DataTypes.BIGINT,
-//         autoIncrement: true,
-//         primaryKey: true,
-//       },
-//       username: {
-//         type: DataTypes.STRING,
-//         allowNull: false,
-//       },
-//       password: {
-//         type: DataTypes.STRING,
-//         allowNull: true,
-//       },
-//     });
+module.exports = (Sequelize, DataTypes) => {
+  const Survey = Sequelize.define('Survey', {
+    id: {
+      type: DataTypes.BIGINT,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    user_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  });
 
-//     // User.associate = (models) => {
-//     //   models.User.hasMany(models.Task);
-//     // };
+  Survey.associate = (models) => {
+    Survey.hasMany(models.Question, {
+      foreignKey: 'id',
+      as: 'questions',
+    });
 
-//     return User;
-//   };
+    Survey.belongsTo(models.User, {
+      foreignKey: {
+        foreignKey: 'id',
+        allowNull: false,
+      },
+      onDelete: 'CASCADE',
+    });
+
+    Survey.hasMany(models.Result, {
+      foreignKey: 'id',
+      as: 'results',
+    });
+  };
+
+  return Survey;
+};
