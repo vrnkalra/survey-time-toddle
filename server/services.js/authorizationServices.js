@@ -22,11 +22,10 @@ function checkJWT(req, res, next) {
       return next();
     }
 
-    return res.status(500).send({ error: 'Invalid_token', message: err.message });
+    return res
+      .status(500)
+      .send({ error: 'Invalid_token', message: err.message });
   });
 }
 
-module.exports = [
-  createJWT,
-  checkJWT,
-];
+module.exports = { createJWT, checkJWT };
