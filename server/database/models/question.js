@@ -6,7 +6,7 @@ module.exports = (Sequelize, DataTypes) => {
       primaryKey: true,
     },
     survey_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.BIGINT,
       allowNull: false,
     },
     body: {

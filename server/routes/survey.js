@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       name,
     });
     const questionCreatePromise = questions.map(async (q) => {
-      await models.Question.create({ survey_id: survey.id, q });
+      await models.Question.create({ survey_id: survey.id, body: q });
     });
 
     await Promise.all(questionCreatePromise);
@@ -32,7 +32,7 @@ router.post('/:id/take', async (req, res) => {
     const { answers } = req.body;
 
     const resultCreatePromise = answers.map(async (answer) => {
-      await models.Question.create({
+      await models.Result.create({
         survey_id: req.params.id,
         question_id: answer.question_id,
         answer: answer.value,
@@ -54,16 +54,16 @@ router.post('/:id/take', async (req, res) => {
 
 router.get('/:id/result', async (req, res) => {
   try {
-    const surveyResult = await models.Result.findAll({
+    const surveyAnswers = await models.Result.findAll({
       where: { survey_id: req.params.id },
     });
     const surveyQuestions = await models.Question.findAll({
       where: { survey_id: req.params.id },
     });
 
-    if (surveyResult && surveyQuestions) {
+    if (surveyAnswers && surveyQuestions) {
       return res.send({
-        result: surveyResult,
+        answers: surveyAnswers,
         questions: surveyQuestions,
       });
     }

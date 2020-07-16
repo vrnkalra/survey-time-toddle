@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) => {
         type: DataTypes.BIGINT,
         allowNull: false,
       },
-      questionId: {
+      question_id: {
         type: DataTypes.BIGINT,
         allowNull: false,
       },
