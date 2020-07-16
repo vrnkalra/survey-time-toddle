@@ -11,9 +11,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{local}}/",
+					"raw": "{{heroku}}/",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						""
@@ -50,9 +50,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local}}/user/login",
+					"raw": "{{heroku}}/user/login",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						"user",
@@ -96,9 +96,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local}}/survey/",
+					"raw": "{{heroku}}/survey/",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						"survey",
@@ -142,9 +142,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local}}/survey/{{survey_id}}/take",
+					"raw": "{{heroku}}/survey/{{survey_id}}/take",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						"survey",
@@ -179,9 +179,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{local}}/survey/{{survey_id}}/result",
+					"raw": "{{heroku}}/survey/{{survey_id}}/result",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						"survey",
@@ -217,9 +217,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{local}}/image/resize?url=https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-600w-1389188327.jpg",
+					"raw": "{{heroku}}/image/resize?url=https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-600w-1389188327.jpg",
 					"host": [
-						"{{local}}"
+						"{{heroku}}"
 					],
 					"path": [
 						"image",
@@ -260,22 +260,22 @@
 	],
 	"variable": [
 		{
-			"id": "eb4c645e-ede7-4e3a-99b5-a1074c559ac4",
+			"id": "dfdb8a71-21df-4fd2-8e5e-fdc89123a809",
 			"key": "local",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "6a2d89ac-1221-4955-b9f7-d8eb47264e49",
+			"id": "065dfd2f-49e7-4279-aeea-527e2540dd61",
 			"key": "access_token",
 			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk0ODc4MjQwLCJleHAiOjE1OTQ4ODE4NDB9.Cn1TQTGySSdW-AT_59Y9t3gHeLky2CI5H-C1D1vP8Ts"
 		},
 		{
-			"id": "7bb80113-12cc-4013-bb96-5124036c13d0",
+			"id": "8c61c1a8-fdfe-4926-bd05-34d5b62f52bb",
 			"key": "heroku",
 			"value": "https://survey-time-toddle.herokuapp.com"
 		},
 		{
-			"id": "0bad2142-1819-4bc4-9796-6ed691331f92",
+			"id": "308abc1c-eecf-4a89-a5b3-8ade5da56f6e",
 			"key": "survey_id",
 			"value": 1
 		}
