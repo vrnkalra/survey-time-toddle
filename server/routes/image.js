@@ -16,9 +16,15 @@ router.get('/resize', async (req, res) => {
       width: 50,
       height: 50,
       responseType: 'buffer',
+      jpegOptions: { force: true },
     };
     const thumbnail = await imageThumbnail({ uri: url }, options);
-    console.log(thumbnail);
+
+    res.writeHead(200, {
+      'Content-Type': 'image/jpg',
+      'Content-Length': thumbnail.length,
+    });
+    return res.end(thumbnail);
   } catch (error) {
     return res.status(500).send({
       error,
