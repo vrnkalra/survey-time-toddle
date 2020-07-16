@@ -60,15 +60,21 @@ router.get('/:id/result', async (req, res) => {
     const surveyQuestions = await models.Question.findAll({
       where: { survey_id: req.params.id },
     });
-
-    if (surveyAnswers && surveyQuestions) {
+    if (!surveyAnswers.length) {
       return res.send({
-        answers: surveyAnswers,
-        questions: surveyQuestions,
+        message: `No user has take this survey yet for survey id : ${req.params.id}`,
       });
     }
+
+    if (!surveyQuestions.length) {
+      return res.send({
+        message: `No questions found for the survey in db : survey id : ${req.params.id}`,
+      });
+    }
+
     return res.send({
-      message: `No result found for the id : ${req.params.id}`,
+      answers: surveyAnswers,
+      questions: surveyQuestions,
     });
   } catch (error) {
     return res.status(500).send({
