@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const models = require('../database/models');
-const { createJWT } = require('../services.js/authorizationServices');
+const { createJWT } = require('../services/authorizationServices');
+const { loginCheck } = require('../services/validator');
 
-router.post('/login', async (req, res) => {
+router.post('/login', loginCheck, async (req, res) => {
   try {
     const { username, password } = req.body;
 

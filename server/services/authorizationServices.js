@@ -6,7 +6,7 @@ function createJWT(data, res) {
   const token = jwt.sign(data, secretKey, { expiresIn: 1800 });
 
   return res.status(200).send({
-    message: 'Here is your token',
+    message: 'Success',
     data: {
       access_token: `Bearer ${token}`,
     },
@@ -19,6 +19,7 @@ function checkJWT(req, res, next) {
   jwt.verify(token, secretKey, (err, decoded) => {
     if (!err) {
       console.log(decoded);
+      req.userId = decoded;
       return next();
     }
 
