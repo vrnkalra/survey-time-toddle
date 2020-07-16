@@ -15,16 +15,16 @@ module.exports = (Sequelize, DataTypes) => {
     },
   });
 
-  User.associate = (models) => {
-    User.hasMany(models.Survey, {
-      foreignKey: 'id',
-      as: 'surveys',
-    });
-    User.hasMany(models.Result, {
-      foreignKey: 'id',
-      as: 'results',
-    });
-  };
+  // User.associate = (models) => {
+  //   // User.hasMany(models.Survey, {
+  //   //   foreignKey: 'user_id',
+  //   //   as: 'surveys',
+  //   // });
+  //   // User.hasMany(models.Result, {
+  //   //   foreignKey: 'id',
+  //   //   as: 'results',
+  //   // });
+  // };
 
   return User;
 };

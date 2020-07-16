@@ -15,15 +15,15 @@ module.exports = (Sequelize, DataTypes) => {
     },
   });
 
-  Question.associate = (models) => {
-    Question.belongsTo(models.Survey, {
-      foreignKey: {
-        foreignKey: 'survey_id',
-        allowNull: false,
-      },
-      onDelete: 'CASCADE',
-    });
-  };
+  // Question.associate = (models) => {
+  //   Question.belongsTo(models.Survey, {
+  //     foreignKey: {
+  //       foreignKey: 'survey_id',
+  //       allowNull: false,
+  //     },
+  //     onDelete: 'CASCADE',
+  //   });
+  // };
 
   return Question;
 };
