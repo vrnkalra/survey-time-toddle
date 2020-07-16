@@ -13,6 +13,10 @@ module.exports = (Sequelize, DataTypes) => {
       type: DataTypes.BIGINT,
       allowNull: false,
     },
+    questionId: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
     answer: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -23,14 +27,21 @@ module.exports = (Sequelize, DataTypes) => {
     Result.belongsTo(models.User, {
       onDelete: 'CASCADE',
       foreignKey: {
-        foreignKey: 'id',
+        foreignKey: 'user_id',
         allowNull: false,
       },
     });
     Result.belongsTo(models.Survey, {
       onDelete: 'CASCADE',
       foreignKey: {
-        foreignKey: 'id',
+        foreignKey: 'survey_id',
+        allowNull: false,
+      },
+    });
+    Result.belongsTo(models.Survey, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        foreignKey: 'questionId',
         allowNull: false,
       },
     });

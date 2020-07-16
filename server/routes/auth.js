@@ -11,7 +11,8 @@ router.post('/login', loginCheck, async (req, res) => {
       where: { username },
       defaults: { password },
     });
-    return createJWT({ id: user.id }, res);
+
+    return createJWT({ id: user[0].id }, res);
   } catch (error) {
     return res.status(500).send({
       error,

@@ -23,7 +23,7 @@ module.exports = (Sequelize, DataTypes) => {
 
     Survey.belongsTo(models.User, {
       foreignKey: {
-        foreignKey: 'id',
+        foreignKey: 'user_id',
         allowNull: false,
       },
       onDelete: 'CASCADE',
